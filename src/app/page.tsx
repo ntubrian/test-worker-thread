@@ -9,8 +9,8 @@ export default function Index() {
     workerRef.current = new Worker(new URL('../../worker.ts', import.meta.url));
     workerRef.current.onmessage = (event: MessageEvent<string>) =>
       // alert(`WebWorker Response => ${event.data}`);
-    console.log(event.data)
-      setState(event.data);
+    // console.log(event.data);
+    setState(event.data);
     return () => {
       workerRef.current?.terminate();
     };
